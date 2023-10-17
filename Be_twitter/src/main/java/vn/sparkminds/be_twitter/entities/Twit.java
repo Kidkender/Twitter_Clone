@@ -3,6 +3,7 @@ package vn.sparkminds.be_twitter.entities;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,14 +22,12 @@ public class Twit {
 
     @ManyToOne
     private User user;
-
     private String content;
-
     private String image;
     private String video;
 
-    @OneToMany(mappedBy = "twit",cascade = CascadeType.ALL)
-    private List<Like> likes= new ArrayList<>();
+    @OneToMany(mappedBy = "twit", cascade = CascadeType.ALL)
+    private List<Like> likes = new ArrayList<>();
 
     @OneToMany
     private List<Twit> replyTwits = new ArrayList<>();
@@ -36,11 +35,12 @@ public class Twit {
     @ManyToMany
     private List<User> reTwitUsers = new ArrayList<>();
 
-     @ManyToOne
+    @ManyToOne
     private Twit replyFor;
 
-private boolean isReply;
-private boolean isTwit;
+    private boolean isReply;
+    private boolean isTwit;
 
+    private LocalDateTime createdAt;
 
 }
