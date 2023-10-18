@@ -30,7 +30,7 @@ public class LikeController {
         Like like = likeService.likeTwit(twitId, user);
 
         LikeDto likeDto = LikeDtoMapper.toLikeDto(like, user);
-        return new ResponseEntity<LikeDto>(likeDto, HttpStatus.CREATED);
+        return new ResponseEntity<>(likeDto, HttpStatus.CREATED);
     }
 
     @PostMapping("/twit/{twitId}")
