@@ -95,7 +95,7 @@ import java.util.List;
 
     @Override
     public List<Twit> getUserTwit(User user) throws UserException {
-        return twitRepository.findByReTwitUserContainsOrUserId_andIsTwitTrueOrderByCreatedAtDesc(user,user.getId());
+        return twitRepository.findByReTwitUsersContainsOrUserIdAndIsTwitTrueOrderByCreatedAtDesc(user,user.getId());
     }
 
     @Override
